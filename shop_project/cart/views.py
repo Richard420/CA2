@@ -3,7 +3,7 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
-from vouchers.forms import VoucherApplyForm
+
 
 @require_POST
 def cart_add(request, product_id):
@@ -25,14 +25,7 @@ def cart_remove(request, product_id):
 
 def cart_detail(request):
         cart = Cart(request)
-        for item in cart:
-            item['update_quantity_form'] = CartAddProductForm(
-                                initial={'quantity': item['quantity'],
-                                'update': True})
-        voucher_apply_form = VoucherApplyForm
-
-        return render(request, 'cart/detail.html',{'cart':cart,
-                                'voucher_apply_form': voucher_apply_form})
+        return render(request, 'cart/detail.html',{'cart':cart})
 
     
 

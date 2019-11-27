@@ -1,7 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
-from vouchers.models import Voucher
 
 class Cart(object):
     def __init__(self,request):
