@@ -46,6 +46,23 @@ Your shopping cart
         </tr>        
     </tbody>
     </table>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="{{data_key}}"
+                        data-name="Online Store"
+                        data-description="{{description}}"
+                        data-amount="{{stripe_total}}"
+                        data-currency="EUR">
+                    </script>
+                </form>
+            </p>
+        </div>
+    </div>
     <p class="text-right">
     <a href="{% url 'shop:product_list' %}"
         class="buttonlight">Continue shopping</a>
