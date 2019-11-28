@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'stripe',
+    'vouchers.apps.VouchersConfig',
+    
 ]
 
 MIDDLEWARE = [
