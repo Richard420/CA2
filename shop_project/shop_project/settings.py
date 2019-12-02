@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'stripe',
     'orders.apps.OrdersConfig',
+    'emailapp.apps.EmailappConfig',
     
 ]
 
