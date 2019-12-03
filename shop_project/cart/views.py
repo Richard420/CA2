@@ -6,6 +6,7 @@ from .forms import CartAddProductForm
 from django.conf import settings
 import stripe
 from django.core.exceptions import ObjectDoesNotExist
+from vouchers.forms import VoucherApplyForm
 
 
 
@@ -48,6 +49,10 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(
                             initial={'quantity': item['quantity'],
                             'update': True})
+
+                
+    voucher_apply_form = VoucherApplyForm()
+
     stripe.api_key = settings.STRIPE_SECRET_KEY
     stripe_total = cart.get_total_price
     description = 'Online Shop - New Order'

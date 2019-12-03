@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'stripe',
     'orders.apps.OrdersConfig',
     'emailapp.apps.EmailappConfig',
+    'vouchers.apps.VouchersConfig',
     
 ]
 
