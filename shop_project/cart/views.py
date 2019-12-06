@@ -54,8 +54,8 @@ def cart_detail(request):
     voucher_apply_form = VoucherApplyForm()
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    stripe_total = cart.get_total_price
+    stripe_total = cart.get_total_price_after_discount() * 100
     description = 'Online Shop - New Order'
     data_key = settings.STRIPE_PUBLISHABLE_KEY
     return render(request, 'cart/detail.html',  dict(cart = cart, 
-					 data_key = data_key, stripe_total=stripe_total, description = description))
+					 data_key = data_key, stripe_total=stripe_total, description = description, voucher_apply_form = voucher_apply_form))
